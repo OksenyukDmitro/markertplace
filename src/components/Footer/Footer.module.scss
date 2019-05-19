@@ -1,0 +1,42 @@
+$backColor: rgb(192, 196, 206);
+$alpha: 0.127321;
+:export {
+  backColor: $backColor;
+}
+$backColorAlpha: rgba($backColor, $alpha);
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 73px;
+  background: $backColorAlpha;
+  color: #c0c4ce;
+  text-align: center;
+}
+.footer_light {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 73px;
+  background: white;
+  color: #c0c4ce;
+  text-align: center;
+}
+.text {
+  margin: auto;
+  padding-right: 10px;
+  text-decoration: none;
+  font-family: Font Awesome 5 Brands;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16.4px;
+  line-height: 17px;
+  white-space: pre-wrap;
+  color: #c0c4ce;
+}
+.container {
+  margin-top: 22px;
+}
