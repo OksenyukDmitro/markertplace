@@ -1,9 +1,3 @@
-$backColor: rgb(192, 196, 206);
-$alpha: 0.127321;
-:export {
-  backColor: $backColor;
-}
-$backColorAlpha: rgba($backColor, $alpha);
 
 .footer {
   position: fixed;
@@ -11,9 +5,10 @@ $backColorAlpha: rgba($backColor, $alpha);
   bottom: 0;
   width: 100%;
   height: 73px;
-  background: $backColorAlpha;
+  background: #f7f7f9;
   color: #c0c4ce;
   text-align: center;
+  opacity: 1;
 }
 .footer_light {
   position: fixed;

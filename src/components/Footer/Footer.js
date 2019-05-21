@@ -11,7 +11,6 @@ function Footer({ ...props }) {
   props.theme === 'light'
     ? (footerStyle = s.footer_light)
     : (footerStyle = s.footer);
-  //ukjhk
   return (
     <footer className={footerStyle}>
       <div className={s.container}>
