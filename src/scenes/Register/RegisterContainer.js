@@ -42,7 +42,7 @@ const enhancer = compose(
   ),
   withHandlers({
     handleRegister: (props) => async () => {
-            console.log(props.fields.repeatPassword);
+        
            
       await props.register(props.fields);
       
