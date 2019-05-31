@@ -8,7 +8,7 @@ import { SearchBox } from '../../components';
 function Home() {
   return (
     <div className={s.container}>
-      <Header theme="light"/>
+      <Header />
       <Footer />
     </div>
   );

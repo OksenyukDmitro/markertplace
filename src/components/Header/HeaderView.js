@@ -10,13 +10,14 @@ import heart_light from '../../Images/Shape_light.png';
 import LogofullLogin from '../../Images/Logofull_login.png';
 import LogofullRegister from '../../Images/Logofull_register.png';
 import Logofull_light from '../../Images/Logofull_light.png';
-function Header({ handleLogout, ...props }) {
+function Header({ handleLogout, user, ...props }) {
   var container;
 
-  props.light? container=s.container_light : container=s.container;
-		if(props.children !== []&&props.children !== undefined)
+  props.light
+    ? (container = s.container_light)
+    : (container = s.container);
+  if (props.children !== [] && props.children !== undefined)
     container = s.container_search;
-		
 
   return (
     <div className={container}>
@@ -30,18 +31,31 @@ function Header({ handleLogout, ...props }) {
           ) : (
             <Link to={routes.home}>
               {' '}
-              <img className={s.logo} src={props.light? LogofullLogin : Logofull_light } />
+              <img
+                className={s.logo}
+                src={props.light ? LogofullLogin : Logofull_light}
+              />
             </Link>
           )}
         </div>
 
-   <div className={s.search}>{props.children}</div>
+        <div className={s.search}>{props.children}</div>
 
         <div className={s.right}>
           <button className={s.btnCell}>sell</button>
-          {Api.Auth.isLoggedIn ? (
-            <div className={s.btn} onClick={handleLogout}>
-              Logout
+
+          {Api.Auth.isLoggedIn && user ? (
+            <div className={s.userIcon}>
+              <div>
+                {user.fullName[0]}
+                <div className={s.modal}>
+                  <div>
+                    <img src={user.avatar} alt="avatar" />,
+                    <h4 className={s.fullname}> {user.fullName}</h4>,
+                    <h4 className={s.fullname}> {user.email}</h4>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
             <Link className={s.btn} to={routes.login}>
@@ -49,10 +63,12 @@ function Header({ handleLogout, ...props }) {
             </Link>
           )}
           <Link to={routes.bookmarks}>
-            <img className={s.image} src={props.light? heart:heart_light} />
+            <img
+              className={s.image}
+              src={props.light ? heart : heart_light}
+            />
           </Link>
         </div>
-       
       </header>
     </div>
   );
@@ -60,13 +76,4 @@ function Header({ handleLogout, ...props }) {
 
 Header.propTypes = {};
 
-const enhancer = compose(
-  withRouter,
-  withHandlers({
-    handleLogout: (props) => () => {
-      Api.Auth.logout();
-      props.history.push(routes.home);
-    },
-  }),
-);
-export default enhancer(Header);
+export default Header;

@@ -88,3 +88,50 @@
   margin-top: 102px;
  
 }
+.userIcon{
+  background: red;
+  width: 40px;   
+  height: 38px; 
+  border-radius: 50%;
+  margin-right: 37.17px;
+  margin-top: 20px;
+  float: left;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 40px;
+ 
+} 
+  .modal{
+    display:none;
+    margin-left:-165px;
+    
+    margin-top:17px;
+    
+   
+    -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-transition-delay: 1s;
+    .fullname{
+      font-family: Helvetica;
+font-size: 10px;
+line-height: 20px;
+/* identical to box height, or 200% */
+letter-spacing: 1px;
+
+color: #000000;
+    }
+}
+.userIcon:hover .modal{
+  display:block;
+  position: relative;;
+  top:-16px;
+  z-index:9999;
+  height:109px;
+  width:204px;
+  -webkit-transition-delay: 0.5s;
+  
+}

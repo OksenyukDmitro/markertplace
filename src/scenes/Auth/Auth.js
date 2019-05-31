@@ -4,15 +4,15 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import s from './Auth.module.scss';
 import { Header } from '../../components';
 import { routes } from '../../scenes/router';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
+import Login from '../Login/LoginContainer';
+import Register from '../Register/RegisterContainer';
 import { Footer } from '../../components';
 import Api from '../../api';
 function Auth() {
   return (
     <Route path={routes.auth}>
       <div className={s.container}>
-        <Header theme="light" />
+        <Header light="true" />
         <Switch>
           {Api.Auth.isLoggedIn && <Redirect to={routes.home} />}
           <Route path={routes.login} component={Login} exact />
