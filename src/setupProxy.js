@@ -16,6 +16,6 @@ const wsProxy = createProxy({
 });
 
 module.exports = (app) => {
-  app.use('/api', proxy);
+  app.use('/api/*', proxy);
   app.use('/socket.io', wsProxy);
 };
