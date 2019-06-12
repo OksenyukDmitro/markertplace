@@ -5,16 +5,24 @@
   "dependencies": {
     "@letapp/redux-actions": "^3.0.1",
     "axios": "^0.18.0",
+    "formik": "^1.5.7",
     "http-proxy-middleware": "^0.19.1",
     "node-sass": "^4.12.0",
+    "normalizr": "^3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
     "react-redux": "^7.0.3",
+    "react-router-modal": "^1.5.2",
     "react-scripts": "3.0.0",
+    "react-virtualized": "^9.21.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "tunnel": "0.0.6"
+    "socket.io-client": "^2.2.0",
+    "tunnel": "0.0.6",
+    "uuid": "^3.3.2",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",

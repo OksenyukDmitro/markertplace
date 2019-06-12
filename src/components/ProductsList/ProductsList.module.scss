@@ -1,0 +1,71 @@
+
+div.pfloat {
+    float: left;
+    width: 25%;
+    cursor:pointer;
+    height: 219px;
+  }
+div.floatLight {
+    float: left;
+    width: 25%;
+    cursor:pointer;
+    height: 219px;
+    background: white;
+  }
+  div.pfloatIn {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #f2dcdc;
+    background: #ffffff;
+    height: 212px;
+    margin-left: 0px;
+  }
+  img.pimg {
+    width: 100%;
+    height: 100%;
+  }
+  .imgContainer {
+    height: 148px;
+  }
+  .itemContainer {
+    height: 20%;
+  }
+  div.pname {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  div.pprice {
+    color: #f44242;
+  }
+  div.pdesc {
+    color: #888;
+    font-size: 0.9em;
+  }
+  .padd {
+    position: relative;
+    background: #ffffff;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.163407);
+    border-radius: 50%;
+    padding: 7px;
+    right: 3%;
+    left: 77%;
+    bottom: 78px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+   
+  @media only screen and (max-width: 1024px) {
+    div.pfloat {
+      width: 33%;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    div.pfloat {
+      width: 50%;
+    }
+  }
+  

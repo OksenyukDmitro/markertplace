@@ -1,2 +1,53 @@
-.root {
+.container {
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  overflow: hidden;
+  height: calc(100vh - 88px);
+  background: white;
+}
+.aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  overflow: auto;
+ 
+  height: -webkit-fill-available;
+}
+.main {
+  display: flex;
+  flex: 2;
+  background: white;
+}
+.lastMessage {
+  max-height: 20px;
+  overflow: hidden;
+  margin-left: 25px;
+  color: #97a3b4;
+  margin-top: 3px;
+}
+.chatName {
+  max-height: 20px;
+  overflow: hidden;
+  margin-left: 25px;
+  color: black;
+  text-decoration: none;
+}
+.chats {
+  padding-top: 15px;
+  border: 1px solid #e7e9ed;
+  cursor: pointer;
+}
+.selectedChat {
+  padding-top: 15px;
+  border: 1px solid #349A89;;
+  cursor: pointer;
+  background: rgba(152, 255, 143,0.3);
+}
+.time {
+  float: right;
+  color: #97a3b4;
+  margin: auto;
+  margin-right: 10px;
+  margin-top: 2px;
 }

@@ -5,24 +5,29 @@ import { routes } from '../../scenes/router';
 import { compose, withHandlers } from 'recompose';
 import Header from './HeaderView';
 import Api from '../../api';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { viewerOperations } from '../../modules/viewer';
 
 function mapStateToProps(state) {
   return {
-    user: state.viewer.user,    
+    user: state.viewer.user,
   };
 }
 const mapDispatchToProps = {
- 
-  
+  logout: viewerOperations.logout,
 };
 const enhancer = compose(
-  connect(mapStateToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
   withRouter,
   withHandlers({
     handleLogout: (props) => () => {
-      Api.Auth.logout();
-      props.history.push(routes.home);
+      
+      props.logout();
+
+     
     },
   }),
 );

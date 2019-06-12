@@ -4,14 +4,29 @@ import Api from '../../api';
 export function fetchViewer() {
   return async (dispatch) => {
     try {
-      dispatch(actions.viewer.start());
+      dispatch(actions.fetchViewer.start());
       const res = await Api.viewer.get();
-      dispatch(actions.viewer.success(res.data));
+      dispatch(actions.fetchViewer.success(res.data));
       console.log("res.data");
       console.log(res.data);
       console.log("res.data");
     } catch (error) {
-      dispatch(actions.viewer.error({ message: error.message }));
+      dispatch(actions.fetchViewer.error({ message: error.message }));
+    }
+  };
+}
+export function logout() {
+  return async function logoutThunk(dispatch) {
+    try {
+      dispatch(actions.logout.start());
+
+      Api.Auth.logout();
+      Api.Auth.isLoggedIn=false;
+      dispatch(actions.logout.success());
+    } catch (err) {
+      dispatch(
+        actions.logout.error(),
+      );
     }
   };
 }

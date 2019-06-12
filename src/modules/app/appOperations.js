@@ -1,14 +1,26 @@
 import * as actions from './appActions';
-import Api from '../../api';
+import Api, { SocketApi } from '../../api';
 import { viewerOperations } from '../viewer';
+import { messagesOperations } from '../messages';
+
+export function subscribeToSockets() {
+  return function subscribeToSocketsThunk(dispatch) {
+    SocketApi.handleMessages((message) =>
+      dispatch(messagesOperations.handleMessageRealTime(message)),
+    );
+  };
+}
+
 export function init() {
   return async function initThunk(dispatch) {
     try {
       dispatch(actions.initialization.start());
       Api.init();
-			console.log("fetch");
-			dispatch(viewerOperations.fetchViewer());
+      console.log('fetch');
+      dispatch(viewerOperations.fetchViewer());
       dispatch(actions.initialization.success());
+      
+      dispatch(subscribeToSockets());
     } catch (err) {
       dispatch(
         actions.initialization.error({ message: err.message }),

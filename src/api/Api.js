@@ -1,15 +1,18 @@
 import axios from 'axios';
+import SocketApi from './SocketApi';
 
 const urls = {
   login: '/api/auth/login',
   register: '/api/auth/register',
   viewer: '/api/account/user',
-};
+  productsLatest: '/api/products/latest',
+  addProduct: '/api/products',
+  userProducts: '/api/users/', 
+   uploadImage: '/api/upload/images',
+   user: '/api/users/',
+    product: '/api/products/',
+    chats: '/api/chats',
 
-export const viewer = {
-  get() {
-    return axios.get(urls.viewer);
-  },
 };
 
 export const Auth = {
@@ -30,6 +33,7 @@ export const Auth = {
       const token = window.localStorage.getItem('token');
       this._token = JSON.parse(token);
       this._setTokenToAxios(this._token);
+      SocketApi.init(this._token);
     } catch (error) {
       console.error(error);
     }
@@ -45,6 +49,7 @@ export const Auth = {
 
   logout() {
     this._token = null;
+    axios.defaults.headers.common.Authorization = ``
     try {
       window.localStorage.removeItem('token');
     } catch (error) {
@@ -67,6 +72,57 @@ export const Auth = {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
 };
+export const viewer = {
+  get() {
+    return axios.get(urls.viewer);
+  },
+};
+export const user = {
+  get(id) {
+    return axios.get(urls.user +   `${id}`);
+  },
+};
+
+export const Products = {
+  getLatest() {
+    return axios.get(urls.productsLatest);
+  },
+  addProduct(body) {
+    return axios.post(urls.addProduct, body);
+  },
+  Product(id) {
+    return axios.get(urls.product+   `${id}`);
+  },
+
+  uploadImage(body) {
+    return axios.post(urls.uploadImage, body);
+  },
+  getUserProducts(id) {
+    return axios.get(urls.userProducts + `${id}/products`);
+  },
+};
+
+export const Chats={
+  createChat(productId){
+    return axios.post(`${urls.product}${productId}/createChat `);
+
+  },
+  fetch(){
+    return axios.get(urls.chats);
+
+  }
+}
+export const Messages={
+  sendMessage(chatId, text){
+   
+    return axios.post(`${urls.chats}/${chatId}/messages`,{text});
+
+  },
+  fetchMessages(chatId){
+    return axios.get(`${urls.chats}/${chatId}/messages`);
+
+  }
+}
 
 export function init() {
   Auth.init();

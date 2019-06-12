@@ -1,6 +1,6 @@
 
 .footer {
-  position: fixed;
+  //position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -8,10 +8,10 @@
   background: #f7f7f9;
   color: #c0c4ce;
   text-align: center;
-  opacity: 1;
+  opacity: 1;    display: flow-root;
 }
 .footer_light {
-  position: fixed;
+  //position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;

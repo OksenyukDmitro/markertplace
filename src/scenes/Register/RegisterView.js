@@ -4,19 +4,22 @@ import s from './Register.module.scss';
 import { routes } from '../../scenes/router';
 import { Link } from 'react-router-dom';
 
+import { Input } from '../../components';
 
-import {Input} from '../../components';
-
-function Register({ fields, handleRegister, handleFieldChange, isError, isLoading,errorMessage }) {
-    
+function Register({
+  fields,
+  handleRegister,
+  handleFieldChange,
+  isError,
+  isLoading,
+  errorMessage,
+}) {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <div>
           <p className={s.labelLogin}>Register</p>
-     
           <Input
-		
             fields={fields}
             name="email"
             placeholder="example@gmail.com"
@@ -24,7 +27,6 @@ function Register({ fields, handleRegister, handleFieldChange, isError, isLoadin
             onChange={handleFieldChange}
           />
           <Input
-		
             fields={fields}
             name="fullName"
             placeholder="TONY STARK"
@@ -36,28 +38,39 @@ function Register({ fields, handleRegister, handleFieldChange, isError, isLoadin
             name="password"
             label="PASSWORD"
             onChange={handleFieldChange}
+            type="password"
           />
           <Input
             fields={fields}
             name="repeatPassword"
             label="PASSWORD AGAIN"
             onChange={handleFieldChange}
+            type="password"
           />
           <p className={s.forgetPass}>Don’t remember password?</p>
           <button
-          disabled={isLoading? true:false}
+            disabled={isLoading ? true : false}
             className={s.btn}
             type="button"
             onClick={handleRegister}
           >
-            {isLoading? "Loading":"Continue"}
+            {isLoading ? 'Loading' : 'Continue'}
           </button>
-          <p className={s.error}> {isError? [errorMessage.message] :""}</p>
-
+          <p className={s.error}>
+            {' '}
+            {isError ? [errorMessage.message] : ''}
+          </p>
           <br />{' '}
         </div>
+       
+      </div> <div className={s.containerNoAccount}>
+        <p className={s.text}>
+        I already have an account,{' '}
+          <Link className={s.link} to={routes.login}>
+            LOG IN
+          </Link>
+        </p>
       </div>
-     
     </div>
   );
 }

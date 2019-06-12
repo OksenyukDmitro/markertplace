@@ -1,5 +1,5 @@
 .container {
-  position: fixed;
+  position: absolute;
   left: 0;
   align-content: center;
   align-items: center;
@@ -9,12 +9,12 @@
 }
 .search {
   float: left;
-  padding-left: 25px;
+  padding-left: 2%;
   margin-left: 18.2%;
-  margin-right: 7px;
+  margin-right: 1%;
   width: 32%;
   height: 44.5px;
-  max-width: 467px;
+  //max-width: 467px;
   max-height: 51px;
   background: #ffffff;
   border-radius: 4px;
@@ -25,13 +25,13 @@
 .searchLocation {
   float: left;
   width: 13.5%;
-  margin-right: 7px;
+  margin-right: 1%;;
   height: 44.5px;
-  max-width: 198;
+ // max-width: 198;
   max-height: 51px;
   background: #ffffff;
   border-radius: 4px;
-  padding-left: 25px;
+  padding-left: 2%;
   background-image: url('../../Images/location_filled.png');
   background-repeat: no-repeat;
   background-position: left;
@@ -41,7 +41,7 @@
   float: left;
   width: 11.8%;
   height: 50.5px;
-  max-width: 176;
+ // max-width: 176;
   max-height: 51px;
   background: #3e3961;
   border-radius: 4px;

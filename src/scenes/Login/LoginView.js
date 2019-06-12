@@ -3,18 +3,23 @@ import T from 'prop-types';
 import s from './Login.module.scss';
 import { routes } from '../../scenes/router';
 import { Link } from 'react-router-dom';
+import { Input } from '../../components';
 
-import {Input} from '../../components';
+function Login({
+  fields,
+  handleLogin,
+  handleFieldChange,
+  isError,
+  isLoading,
+  location,
+}) {
 
-function Login({ fields, handleLogin, handleFieldChange, isError, isLoading }) {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <div>
           <p className={s.labelLogin}>Login</p>
-     
           <Input
-		
             fields={fields}
             name="email"
             placeholder="example@gmail.com"
@@ -26,18 +31,21 @@ function Login({ fields, handleLogin, handleFieldChange, isError, isLoading }) {
             name="password"
             label="PASSWORD"
             onChange={handleFieldChange}
+            type="password"
           />
           <p className={s.forgetPass}>Don’t remember password?</p>
           <button
-          disabled={isLoading? true:false}
+            disabled={isLoading ? true : false}
             className={s.btn}
             type="button"
             onClick={handleLogin}
           >
-            {isLoading? "Loading":"Continue"}
+            {isLoading ? 'Loading' : 'Continue'}
           </button>
-          <p className={s.error}> {isError? " The username or password  is invalid.":""}</p>
-
+          <p className={s.error}>
+            {' '}
+            {isError ? ' The username or password  is invalid.' : ''}
+          </p>
           <br />{' '}
         </div>
       </div>

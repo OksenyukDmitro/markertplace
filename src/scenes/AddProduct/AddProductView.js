@@ -1,22 +1,29 @@
+
 import React from 'react';
 import T from 'prop-types';
-import s from './Bookmarks.module.scss';
+import s from './AddProduct.module.scss';
 import { Header } from '../../components';
 import { Footer } from '../../components';
 import { SearchBox } from '../../components';
+import {Formik} from 'formik';
+function AddProduct({list}) {
 
-function Bookmarks() {
   return (
     <div className={s.container}>
-      <Header >
+      <Header>
         <SearchBox />
       </Header>
-      <div className={s.text}>Bookmarks;</div>
+      <div>
+        {list.map((item) => (
+          <div key={item.id}>{item.title} </div>
+        ))}
+        ;
+      </div>
       <Footer />
     </div>
   );
 }
 
-Bookmarks.propTypes = {};
+AddProduct.propTypes = {};
 
-export default Bookmarks;
+export default AddProduct;

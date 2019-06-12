@@ -8,12 +8,16 @@ import React from 'react';
 import Home from './Home/Home';
 import NotFound from './NotFound/NotFound';
 import Auth from './Auth/Auth';
-import Inbox from './Inbox/Inbox';
+import Inbox from './Inbox/IndoxContainer';
 import Terms from './Terms/Terms';
 import Privacy from './Privacy/Privacy';
-import Bookmarks from './Bookmarks/Bookmarks';
-import Profile from './Profile/Profile';
+import Bookmarks from './Bookmarks/BookmarksContainer';
+import Profile from './Profile/ProfileContainer';
 import Api from '../api';
+import { ModalRoute } from 'react-router-modal';
+import Modal from './Modal/ModalAddView';
+import  Product from './Product/ProductContainer';
+
 export const routes = {
   home: '/',
   login: '/auth/login',
@@ -24,24 +28,33 @@ export const routes = {
   terms: '/terms',
   privacy: '/privacy',
   bookmarks: '/bookmarks',
-  profile: '/profile',
+  profile: '/profile/:id',
   users: '/users/:id',
   listings: '`/listings/:id',
   search: '`/search',
+  addProducts: '/products/add',
+  products:'/products/:id',
+  chat:'/chat/:id'
 };
 
 export default function Router() {
   return (
     <BrowserRouter>
-      <Switch>
+      <Switch>     
         <Route exact path={routes.home} component={Home} />
-        <Route path={routes.inbox} component={Inbox} />
+      
+        <PrivateRoute path={routes.inbox} component={Inbox} />     
+        <PrivateRoute path={routes.chat} component={Inbox} />     
+        <PrivateRoute path={routes.addProducts} component={Modal} />
         <Route path={routes.terms} component={Terms} />
         <Route path={routes.privacy} component={Privacy} />
-        <Route path={routes.bookmarks} component={Bookmarks} />
+        <PrivateRoute path={routes.bookmarks} component={Bookmarks} />
         <PrivateRoute path={routes.profile} component={Profile} />
         <Route path={routes.auth} component={Auth} />
+        <Route path={routes.products} component={Product} />
         <Route component={NotFound} />
+        
+      
       </Switch>
     </BrowserRouter>
   );

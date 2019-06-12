@@ -1,0 +1,25 @@
+.container {
+    position: absolute;  
+    width: 100%;
+    height: 100%;
+    margin-top: 160px;
+    padding-bottom: 96px;
+  }
+  .name {
+    margin-left: 50%;
+    text-align: center;
+  }
+  .avatar {
+    padding: 0px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    margin-left: 46.7%;
+    margin-right: 46.7%;
+   
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 14px;
+    line-height: 40px;
+  }
+  

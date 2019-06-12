@@ -1,0 +1,121 @@
+.container {
+  width: 100%;
+ 
+  overflow: auto;
+  border: 1px solid #e9ebf2;
+  margin-left: 1%;
+}
+.input {
+  .placeholder {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: #97a3b4;
+  }
+  flex-grow: 2;
+  /* And hide the input's outline, so the form looks like the outline */
+  border: none;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #e9ebf2;
+  padding: 5px;
+  position: fixed;
+  bottom: 2%;
+
+  margin-left: -1px;
+  margin-right: 20px;
+  height: 58px;
+  width: 65%;
+}
+.btn {
+  border: 1px solid blue;
+  background: blue;
+  color: white;
+}
+.participants {
+  height: 62px;
+  width: 100%;
+  background: #F5F7FB
+}
+
+.avatarContainer {
+  width: 50px;
+  float: left;
+}
+
+.name {
+  float: left;
+  margin-left: 16px;
+  margin-top: 19px;
+}
+.avatar {
+  position: relative;
+  margin-top: 5px;
+  padding: 0px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2.7px solid #349a89;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 40px;
+}
+.aside{
+    margin-top: 25px;
+    width: 100%;
+    height:  calc(100% - 156px);;
+}
+
+.messageContainer {
+  padding: 8px;
+  margin: 4px;
+  align-self: flex-end;
+  max-width: 220px;
+  width: fit-content;
+  //transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.messageText {
+  background: #f3f6fa;
+  color: black;
+  border-radius: 10%;
+
+  background: #00aeef;
+}
+.messageTextViewer {
+  background: #f3f6fa;
+  border-radius: 10%;
+
+  text-align: right;
+}
+.messageContainerViewer {
+  align-self: flex-end;
+
+  padding: 8px;
+  margin: 4px;
+  align-self: flex-end;
+  max-width: 220px;
+  width: fit-content;
+  color: black;
+  margin-left: auto;
+  margin-right: 0.9em;
+}
+.participantMessage {
+  color: white;
+  background-color: #00aeef;
+}
+.time {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 26px;
+  /* identical to box height, or 203% */
+  text-align: right;
+
+  color: #97a3b4;
+}

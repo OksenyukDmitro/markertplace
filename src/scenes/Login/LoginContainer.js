@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import { authOperations } from '../../modules/auth';
 import { routes } from '../../scenes/router';
 import Api from '../../api';
+import {  generatePath } from 'react-router-dom';
+
 function mapStateToProps(state) {
   return {
     isLoading: state.auth.login.isLoading,
     isError: state.auth.login.isError,
-  
   };
 }
 const mapDispatchToProps = {
   login: authOperations.login,
-  
 };
 const enhancer = compose(
   connect(
@@ -39,9 +39,19 @@ const enhancer = compose(
   ),
   withHandlers({
     handleLogin: (props) => async () => {
-			console.log(props.fields);
+      let id;
+    try{
+       id =
+      props.location &&   props.location.state &&   props.location.state.from.state.id
+        ?   props.location.state.from.state.id
+        : undefined;}
+        catch(err){console.log(err)};
+ 
+
       await props.login(props.fields);
-     if(Api.Auth.isLoggedIn) props.history.push(routes.home);
+
+      if (Api.Auth.isLoggedIn) 
+      props.history.push(id?generatePath(routes.products, { id: id} ):routes.home);
     },
   }),
 );

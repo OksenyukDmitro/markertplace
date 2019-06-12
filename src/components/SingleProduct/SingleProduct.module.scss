@@ -1,0 +1,223 @@
+.user {
+  height: 275px;
+  width: 27%;
+  float: left;
+}
+.userInfo {
+  float: left;
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  background: #f2f2f2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-transition-delay: 1s;
+  height: 146px;
+  width: 90%;
+  min-width: 80px;
+  margin-left: 10%;
+  border-radius: 4px 4px 0px 0px;
+
+  overflow: hidden;
+  //@at-rootbackground: #f44242;
+  .green {
+    background: #349a89;
+    height: 50px;
+    width: 100%;
+    margin-top: -17px;
+  }
+  border-radius: 4px 4px 0px 0px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #000000;
+  border-radius: 4px;
+  .fullname {
+    margin: 0px;
+    padding: 0px;
+    height: 16px;
+    font-family: Helvetica;
+    font-size: 15px;
+    line-height: 17px;
+    text-align: center;
+    color: #2b2b2b;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #000000;
+    margin-top: 9px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .location {
+    margin: 0px;
+    padding: 0px;
+    height: 16px;
+    font-family: Helvetica;
+    font-size: 10px;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 15px;
+    line-height: 17px;
+
+    color: rgba(43, 43, 43, 0.499918);
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;    margin-top: 2px;
+}
+div.pfloat {
+  margin-left: 18.2%;
+  margin-right: 17.2%;
+  padding-top: 23px;
+  float: left;
+  width: 100%;
+  width: 66%;
+}
+
+img.pimg {
+  width: 100%;
+  // max-width: 60%;
+  height: 100%;
+  //  max-height: 10%;
+}
+.imgContainer {
+  float: left;
+  width: 69%;
+  height: 275px;
+  overflow: hidden;
+  padding: 0.5%;
+  background: white;
+}
+.itemContainer {
+  float: left;
+  width: 67%;
+  height: 20%;
+  padding-left:3%;
+  background: white;
+}
+div.pname {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+div.description {
+ 
+  font-family: Helvetica;
+font-size: 14.04px;
+line-height: 24px;
+/* or 169% */
+
+color: #2B2B2B;
+width: 45%;
+}
+div.pprice {
+  color: #f44242;
+}
+div.pdesc {
+  color: #888;
+  font-size: 0.9em;
+}
+.add {
+  position: relative;
+  background: #ffffff;
+  width: max-content;
+  height: 20px;
+ 
+  border-radius: 10.8px 0px 10.8px 10.8px;
+  padding: 7px;
+ 
+  bottom: 30px;
+  font-family: Helvetica;
+font-size: 19.44px;
+line-height: 22px;
+
+color: #101010;
+
+  float:right;
+}
+
+@media only screen and (max-width: 1024px) {
+  div.pfloat {
+    // width: 33%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.pfloat {
+    width: 50%;
+  }
+}
+.userIconContent {
+  margin: 0px;
+  padding: 0px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -38px;
+  float: left;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 72px;
+}
+.btnChat {
+  height: 47px;
+  width: 90%;
+  
+  background: #349a89;
+  border-radius: 4px;
+  border-color: #349a89;
+  //float: left;
+  margin-left: 10%;
+  margin-top: 18px;
+  font-family: Helvetica;
+  font-size: 14px;
+ 
+  /* identical to box height, or 221% */
+  text-transform: uppercase;
+  min-width: 80px;
+
+  color: #ffffff;
+  overflow: hidden;
+  cursor: pointer;
+}
+.btnChatDisabled {
+  height: 47px;
+  width: 90%;
+  
+  background: #349a89;
+  border-radius: 4px;
+  border-color: #349a89;
+  //float: left;
+  margin-left: 10%;
+  margin-top: 18px;
+  font-family: Helvetica;
+  font-size: 14px;
+  opacity: 0.5;
+  /* identical to box height, or 221% */
+  text-transform: uppercase;
+  min-width: 80px;
+
+  color: #ffffff;
+  overflow: hidden;
+}
+.btnFavorite {
+  height: 47px;
+  width: 100%;    
+  border-radius: 4px;
+  border-color: #349a89;
+  //float: left;
+  margin-left: 10%;
+  margin-top: 18px;
+  font-family: Helvetica;
+  font-size: 14px;
+ 
+  /* identical to box height, or 221% */
+  text-transform: uppercase;
+min-width: 150px;
+  color: #ffffff;
+}

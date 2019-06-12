@@ -1,0 +1,48 @@
+.container {
+  padding: 8px;
+  margin: 4px;
+  align-self: flex-end;
+  max-width: 220px;
+  width: fit-content;
+  //transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.text {
+  background: #f3f6fa;
+  color: black;
+  border-radius: 10%;
+
+  background: #00aeef;
+}
+.textViewer {
+  background: #f3f6fa;
+  border-radius: 10%;
+
+  text-align: right;
+}
+.containerViewer {
+  align-self: flex-end;
+
+  padding: 8px;
+  margin: 4px;
+  align-self: flex-end;
+  max-width: 220px;
+  width: fit-content;
+  color: black;
+  margin-left: auto;
+  margin-right: 0.9em;
+}
+.participantMessage {
+  color: white;
+  background-color: #00aeef;
+}
+.time {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 26px;
+  /* identical to box height, or 203% */
+  text-align: right;
+
+  color: #97a3b4;
+}
