@@ -1,6 +1,9 @@
 {
   "name": "marketplace-web",
   "version": "0.1.0",
+   "engines": {
+    "node": "10.15.0"
+  },
   "private": true,
   "dependencies": {
     "@letapp/redux-actions": "^3.0.1",
