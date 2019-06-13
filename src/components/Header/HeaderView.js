@@ -17,13 +17,11 @@ function Header({ handleLogout, user, ...props }) {
   var container;
 
   const random_color = randomColor();
- ;
   props.light
     ? (container = s.container_light)
     : (container = s.container);
   if (props.children !== [] && props.children !== undefined)
     container = s.container_search;
-  console.log(container);
   return (
     <div className={container}>
       <header className={s.header}>
@@ -47,16 +45,15 @@ function Header({ handleLogout, user, ...props }) {
         <div className={s.search}>{props.children}</div>
 
         <div className={s.right}>
-        <Link 
-        className={s.btnSell}
-        to={{
-          pathname: routes.addProducts,
-          state: { modal: true },
-        }}
-        >
-        <p className={s.text}> sell</p>
-      </Link>
-         
+          <Link
+            className={s.btnSell}
+            to={{
+              pathname: routes.addProducts,
+              state: { modal: true },
+            }}
+          >
+            <p className={s.text}> sell</p>
+          </Link>
 
           {Api.Auth.isLoggedIn && user ? (
             <div

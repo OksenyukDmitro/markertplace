@@ -18,9 +18,9 @@ function FormTextArea({ name, label, validate, ...props }) {
         return (
           <div className={s.container}>
             <label htmlFor={name}>
-            <p className={s.label}> {label}</p>
+              <p className={s.label}> {label}</p>
               <textarea
-              className={s.area}
+                className={s.area}
                 id={name}
                 type="text"
                 value={formState[name]}

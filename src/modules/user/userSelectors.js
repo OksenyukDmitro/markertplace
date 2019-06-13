@@ -11,10 +11,9 @@ export const getLatest = createSelector(
 export const getProducts = createSelector(
   (state) => {
     if (state.user.userProducts) {
-      console.log(state.user.userProducts + '1');
       return state.user.userProducts.items;
     }
-    console.log(state.user.userProducts + '2');
+
     return undefined;
   },
   (item) => item,

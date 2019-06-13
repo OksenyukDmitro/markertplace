@@ -5,10 +5,13 @@ import { Header } from '../../components';
 import { Footer } from '../../components';
 function NotFound() {
   return (
+    <div><Header theme="light" />
     <div className={s.container}>
-      <Header theme="light" />
-      NotFound;
-      <Footer theme="light" />
+      
+     <p className={s.text}>You went to a dangerous area. For your own safety, go back</p>
+     
+    </div>
+    <Footer  />
     </div>
   );
 }

@@ -54,20 +54,16 @@ const enhancer = compose(
       if (prevProps.match.params.id !== this.props.match.params.id) {
         this.props.fetchMessage();
       }
-      console.log(prevProps);
-      
+
       if (
         this.props.messages &&
-        this.props.messages !== null&&
-        prevProps&&
+        this.props.messages !== null &&
+        prevProps &&
         prevProps.messages &&
         prevProps.messages !== null
-
       ) {
-        const  messages = this.props.messages;
+        const messages = this.props.messages;
         const { messages: prevMessages } = prevProps;
-
-       
       }
     },
   }),

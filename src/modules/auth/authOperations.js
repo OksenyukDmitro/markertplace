@@ -24,8 +24,10 @@ export function register(body) {
     try {
       if (body.repeatPassword === body.password) {
         dispatch(actions.register.start());
-        body.repeatPassword = undefined;
-        const res = await Api.Auth.register(body);
+        const copyBody = body;
+        copyBody.repeatPassword = undefined;
+
+        const res = await Api.Auth.register(copyBody);
 
         const { user, token } = res.data;
 
@@ -39,9 +41,10 @@ export function register(body) {
           }),
         );
     } catch (err) {
+      debugger;
       dispatch(
         actions.register.error({
-          message: 'The username or password  is invalid',
+          message: err.response.data.error,
         }),
       );
     }

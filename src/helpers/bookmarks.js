@@ -6,20 +6,18 @@ export default function saveBookmarks(viewerId, productId) {
   let bookmarks = getBookmarks(viewerId);
   if (bookmarks === null) bookmarks = [];
   if (isBookmarks(viewerId, productId)) {
-   saveBookmark(bookmarks,viewerId, productId);
+    saveBookmark(bookmarks, viewerId, productId);
   } else {
-   unsaveBookmark(bookmarks,viewerId, productId);
+    unsaveBookmark(bookmarks, viewerId, productId);
   }
 }
-async function saveBookmark(bookmarks,viewerId, productId){
-  const filteredBookmarks = bookmarks.filter(
-    (b) => b !== productId,
-  );
+async function saveBookmark(bookmarks, viewerId, productId) {
+  const filteredBookmarks = bookmarks.filter((b) => b !== productId);
   localStorage.setItem(viewerId, JSON.stringify(filteredBookmarks));
   if (viewerId !== 'guest')
     await Api.Products.unSaveBookmarks(productId);
 }
-async function unsaveBookmark(bookmarks,viewerId, productId){
+async function unsaveBookmark(bookmarks, viewerId, productId) {
   bookmarks.push(productId);
   localStorage.setItem(viewerId, JSON.stringify(bookmarks));
   if (viewerId !== 'guest')

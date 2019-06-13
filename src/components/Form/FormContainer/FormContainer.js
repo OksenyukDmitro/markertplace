@@ -21,8 +21,6 @@ class FormContainer extends React.Component {
         },
       }));
     }
-
-   
   };
 
   resetForm = () => {

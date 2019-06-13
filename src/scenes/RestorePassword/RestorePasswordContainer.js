@@ -1,5 +1,5 @@
-import { compose, withStateHandlers, withHandlers } from 'recompose';
-import Login from './LoginView';
+import { compose, withStateHandlers, withHandlers, withProps, withState } from 'recompose';
+import RestorePassword from './RestorePasswordView';
 import { connect } from 'react-redux';
 import { authOperations } from '../../modules/auth';
 import { routes } from '../../scenes/router';
@@ -23,8 +23,7 @@ const enhancer = compose(
   withStateHandlers(
     {
       fields: {
-        email: '',
-        password: '',
+        email: '',      
       },
     },
     {
@@ -37,25 +36,11 @@ const enhancer = compose(
       }),
     },
   ),
+  withState("message", "setMessage",""),
   withHandlers({
-    handleLogin: (props) => async () => {
-      let id;
-    try{
-       id =
-      props.location &&   props.location.state &&   props.location.state.from.state.id
-        ?   props.location.state.from.state.id
-        : undefined;}
-        catch(err){console.log(err)};
- 
-
-      await props.login(props.fields);
-
-      if (Api.Auth.isLoggedIn) 
-      props.history.push(id?generatePath(routes.products, { id: id} ):routes.home);
-    },
-    handleRestorePass: (props) =>  () => {
-      props.history.push(routes.restorePassword);
+    handleLogin: (props) =>  () => {
+        props.setMessage("Password send in your email")
     },
   }),
 );
-export default enhancer(Login);
+export default enhancer(RestorePassword);

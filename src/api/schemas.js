@@ -11,8 +11,8 @@ export const Message = new schema.Entity('messages', undefined, {
 });
 
 export const MessageCollection = [Message];
-export const Chat = new schema.Entity('chats',{
-  lastMessage:Message
+export const Chat = new schema.Entity('chats', {
+  lastMessage: Message,
 });
 
 export const ChatCollection = [Chat];

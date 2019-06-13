@@ -17,8 +17,8 @@ export function init() {
     try {
       dispatch(actions.initialization.start());
       Api.init();
-      console.log('fetch');
-     const viewer = await dispatch(viewerOperations.fetchViewer());
+
+      const viewer = await dispatch(viewerOperations.fetchViewer());
       dispatch(actions.initialization.success());
       dispatch(productsOperations.fetchBookmarks());
       dispatch(subscribeToSockets());

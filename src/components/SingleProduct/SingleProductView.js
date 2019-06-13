@@ -19,6 +19,7 @@ const SingleProduct = ({
   isModalOpen,
   viewer,
   openInbox,
+  history,
 }) => {
   if (!item) return <div>Loading</div>;
 
@@ -27,7 +28,6 @@ const SingleProduct = ({
   const createdAt = formatDate(new Date(item.createdAt));
 
   const isViewer = viewer && owner && viewer.id === owner.id;
-  console.log(createdAt);
   return (
     <div className={s.pfloat}>
       <div>

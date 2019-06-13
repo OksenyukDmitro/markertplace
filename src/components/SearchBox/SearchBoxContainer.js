@@ -15,18 +15,14 @@ const enhancer = compose(
 
   withHandlers({
     handleChangeInputValue: (props) => (evt) => {
-       
       props.updateInputValue(evt.target.value);
-     if(props.onChange)
-      props.onChange(evt.target.value);
+      if (props.onChange) props.onChange(evt.target.value);
     },
     openInbox: (props) => () => {
       props.history.push(routes.inbox);
     },
 
-    addToBookmarks: (props) => () => {
-      console.log(props.item);
-    },
+    
     ownerProfile: (props) => () => {
       props.history.push({
         pathname: generatePath(routes.profile, {

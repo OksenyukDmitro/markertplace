@@ -8,6 +8,7 @@ import Login from '../Login/LoginContainer';
 import Register from '../Register/RegisterContainer';
 import { Footer } from '../../components';
 import Api from '../../api';
+import RestorePassword from '../RestorePassword/RestorePasswordContainer';
 function Auth() {
   return (
     <Route path={routes.auth}>
@@ -17,6 +18,7 @@ function Auth() {
           {Api.Auth.isLoggedIn && <Redirect to={routes.home} />}
           <Route path={routes.login} component={Login} exact />
           <Route path={routes.register} component={Register} exact />
+          <Route path={routes.restorePassword} component={RestorePassword} exact />
           <Redirect from={routes.auth} to={routes.notfound} />
         </Switch>
         <Footer />

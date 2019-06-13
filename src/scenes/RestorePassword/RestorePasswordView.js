@@ -1,41 +1,35 @@
 import React from 'react';
 import T from 'prop-types';
-import s from './Login.module.scss';
+import s from './RestorePassword.module.scss';
 import { routes } from '../../scenes/router';
 import { Link } from 'react-router-dom';
 import { Input } from '../../components';
 
-function Login({
+function RestorePassword({
   fields,
   handleLogin,
   handleFieldChange,
   isError,
   isLoading,
-  handleRestorePass,
+  message,
 }) {
-
+    const isDisabled = isLoading||fields.email==="";
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <div>
-          <p className={s.labelLogin}>Login</p>
+          <p className={s.labelLogin}>Restore Password</p>
           <Input
             fields={fields}
             name="email"
             placeholder="example@gmail.com"
             label="EMAIL"
             onChange={handleFieldChange}
-          />
-          <Input
-            fields={fields}
-            name="password"
-            label="PASSWORD"
-            onChange={handleFieldChange}
-            type="password"
-          />
-          <p className={s.forgetPass} onClick={handleRestorePass}>Don’t remember password?</p>
+          />         
+          <p className={s.forgetPass}>{message}</p>
           <button
-            disabled={isLoading ? true : false}
+            disabled={ isDisabled? true : false}
+            style={isDisabled?{ opacity: 0.7} :null}
             className={s.btn}
             type="button"
             onClick={handleLogin}
@@ -44,26 +38,18 @@ function Login({
           </button>
           <p className={s.error}>
             {' '}
-            {isError ? ' The username or password  is invalid.' : ''}
+            {isError ? '' : ''}
           </p>
           <br />{' '}
         </div>
-      </div>
-      <div className={s.containerNoAccount}>
-        <p className={s.text}>
-          I have no account,{' '}
-          <Link className={s.link} to={routes.register}>
-            REGISTER NOW
-          </Link>
-        </p>
-      </div>
+      </div>    
     </div>
   );
 }
 
-Login.propTypes = {};
+RestorePassword.propTypes = {};
 
-export default Login;
+export default RestorePassword;
 /* <input className={s.input} type="text" />
           <p className={s.label}>PASSWORD</p>
           <input className={s.input} type="text" />*/

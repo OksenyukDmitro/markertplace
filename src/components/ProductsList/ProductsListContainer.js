@@ -8,7 +8,7 @@ import saveBookmarks, { isBookmarks } from '../../helpers/bookmarks';
 import { FastField } from 'formik';
 
 const mapStateToProps = (state) => ({
-  //list: state.products.latest.items,
+ 
   isLoading: state.products.latest.isLoading,
   viewer: state.viewer.user,
 });

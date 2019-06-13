@@ -28,13 +28,4 @@ function Footer({ ...props }) {
 
 Footer.propTypes = {};
 
-/*const enhancer = compose(
-  withRouter,
-  withHandlers({
-    handleLogout: (props) => () => {
-      Api.Auth.logout();
-      props.history.push(routes.home);
-    },
-  }),
-);*/
 export default Footer;

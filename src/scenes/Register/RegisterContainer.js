@@ -43,7 +43,7 @@ const enhancer = compose(
   withHandlers({
     handleRegister: (props) => async () => {
         
-           
+           debugger
       await props.register(props.fields);
       
      if(Api.Auth.isLoggedIn) props.history.push(routes.home);

@@ -18,8 +18,12 @@ function FormButton() {
 
         return (
           <div>
-            <button className={!isEmpty()?s.disabledBtn:s.btn} disabled={!isEmpty()} onClick={onSubmit}>
-            <p className={s.text}>SUBMIT</p>
+            <button
+              className={!isEmpty() ? s.disabledBtn : s.btn}
+              disabled={!isEmpty()}
+              onClick={onSubmit}
+            >
+              <p className={s.text}>SUBMIT</p>
             </button>
           </div>
         );

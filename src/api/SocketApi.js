@@ -5,13 +5,7 @@ class SocketApi {
       query: {
         token,
       },
-    
     });
-    this.socket.on('connect',()=>{
-      console.log("connecreddddd");
-      console.log({socket});
-  
-    })
   }
 
   handleMessages(handler) {

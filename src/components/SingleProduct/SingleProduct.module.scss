@@ -67,7 +67,8 @@
   display: flex; /* establish flex container */
   flex-direction: column; /* make main axis vertical */
   justify-content: center; /* center items vertically, in this case */
-  align-items: center;    margin-top: 2px;
+  align-items: center;
+  margin-top: 2px;
 }
 div.pfloat {
   margin-left: 18.2%;
@@ -96,7 +97,7 @@ img.pimg {
   float: left;
   width: 67%;
   height: 20%;
-  padding-left:3%;
+  padding-left: 3%;
   background: white;
 }
 div.pname {
@@ -104,14 +105,13 @@ div.pname {
   font-size: 1.1em;
 }
 div.description {
- 
   font-family: Helvetica;
-font-size: 14.04px;
-line-height: 24px;
-/* or 169% */
+  font-size: 14.04px;
+  line-height: 24px;
+  /* or 169% */
 
-color: #2B2B2B;
-width: 45%;
+  color: #2b2b2b;
+  width: 45%;
 }
 div.pprice {
   color: #f44242;
@@ -125,18 +125,18 @@ div.pdesc {
   background: #ffffff;
   width: max-content;
   height: 20px;
- 
+
   border-radius: 10.8px 0px 10.8px 10.8px;
   padding: 7px;
- 
+
   bottom: 30px;
   font-family: Helvetica;
-font-size: 19.44px;
-line-height: 22px;
+  font-size: 19.44px;
+  line-height: 22px;
 
-color: #101010;
+  color: #101010;
 
-  float:right;
+  float: right;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -167,7 +167,7 @@ color: #101010;
 .btnChat {
   height: 47px;
   width: 90%;
-  
+
   background: #349a89;
   border-radius: 4px;
   border-color: #349a89;
@@ -176,7 +176,7 @@ color: #101010;
   margin-top: 18px;
   font-family: Helvetica;
   font-size: 14px;
- 
+
   /* identical to box height, or 221% */
   text-transform: uppercase;
   min-width: 80px;
@@ -188,7 +188,7 @@ color: #101010;
 .btnChatDisabled {
   height: 47px;
   width: 90%;
-  
+
   background: #349a89;
   border-radius: 4px;
   border-color: #349a89;
@@ -207,7 +207,7 @@ color: #101010;
 }
 .btnFavorite {
   height: 47px;
-  width: 100%;    
+  width: 100%;
   border-radius: 4px;
   border-color: #349a89;
   //float: left;
@@ -215,10 +215,10 @@ color: #101010;
   margin-top: 18px;
   font-family: Helvetica;
   font-size: 14px;
- 
+
   /* identical to box height, or 221% */
   text-transform: uppercase;
-min-width: 150px;
+  min-width: 150px;
   color: #ffffff;
 }
 .modal {
@@ -236,7 +236,7 @@ min-width: 150px;
   padding-right: 78px;
   padding-top: 17px;
   max-height: 80%;
-  height:fit-content;
+  height: fit-content;
 }
 
 .overlay {
@@ -245,5 +245,6 @@ min-width: 150px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  z-index: 12311;background: rgba(0, 0, 0, 0.37);
+  z-index: 12311;
+  background: rgba(0, 0, 0, 0.37);
 }

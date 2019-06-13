@@ -39,11 +39,10 @@ export default handleActions(
       state,
       { payload: { chatId, result, oldMessageId } },
     ) => {
-      console.log(state.items[chatId]);
       const items = state.items[chatId]
         .filter((i) => i !== oldMessageId)
         .concat(result);
-        
+
       return {
         ...state,
         items: {

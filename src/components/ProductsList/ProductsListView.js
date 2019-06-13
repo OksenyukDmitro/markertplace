@@ -13,17 +13,16 @@ const ProductsList = ({
   openProduct,
   isBookmark,
   lightBack,
-  location
-}) => { if (!viewer) {
-  viewer = {
-    id: 'guest',
-  };    
-}
+  location,
+}) => {
+  if (!viewer) {
+    viewer = {
+      id: 'guest',
+    };
+  }
   if (item && viewer) isBookmark = isBookmarks(viewer.id, item.id);
- 
-  if(!isBookmark && location.pathname==="/bookmarks")
-  return null
-console.log(location.pathname);
+
+  if (!isBookmark && location.pathname === '/bookmarks') return null;
   return (
     <div className={lightBack ? s.floatLight : s.pfloat}>
       <div className={s.pfloatIn} onClick={openProduct}>

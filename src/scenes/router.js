@@ -13,8 +13,8 @@ import Terms from './Terms/Terms';
 import Privacy from './Privacy/Privacy';
 import Bookmarks from './Bookmarks/BookmarksContainer';
 import Profile from './Profile/ProfileContainer';
+import ProfileEdit from './ProfileEdit/ProfileEditContainer';
 import Api from '../api';
-import { ModalRoute } from 'react-router-modal';
 import Modal from './Modal/ModalAddView';
 import  Product from './Product/ProductContainer';
 
@@ -29,12 +29,14 @@ export const routes = {
   privacy: '/privacy',
   bookmarks: '/bookmarks',
   profile: '/profile/:id',
+  profileEdit: '/profile/:id/edit',
   users: '/users/:id',
   listings: '`/listings/:id',
   search: '`/search',
   addProducts: '/products/add',
   products:'/products/:id',
-  chat:'/chat/:id'
+  chat:'/chat/:id',
+  restorePassword:'/auth/restorepassword',
 };
 
 export default function Router() {
@@ -49,11 +51,11 @@ export default function Router() {
         <Route path={routes.terms} component={Terms} />
         <Route path={routes.privacy} component={Privacy} />
         <Route path={routes.bookmarks} component={Bookmarks} />
-        <PrivateRoute path={routes.profile} component={Profile} />
+        <PrivateRoute path={routes.profile} component={Profile} exact />
+        <PrivateRoute path={routes.profileEdit} component={ProfileEdit} />
         <Route path={routes.auth} component={Auth} />
         <Route path={routes.products} component={Product} />
-        <Route component={NotFound} />
-        
+        <Route component={NotFound} />       
       
       </Switch>
     </BrowserRouter>

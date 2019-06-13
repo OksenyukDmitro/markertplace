@@ -30,7 +30,7 @@ export function fetchProduct(id) {
       const res = await Api.Products.Product(id);
 
       const { entities } = normalize(res.data, schemas.Product);
-      
+
       dispatch(actions.fetchProduct.success({ entities }));
     } catch (err) {
       dispatch(actions.fetchProduct.error({ message: err.message }));
@@ -41,15 +41,22 @@ export function fetchBookmarksProduct(ids) {
   return async function fetchBookmarksProductThunk(dispatch) {
     try {
       dispatch(actions.fetchBookmarksProduct.start());
-      console.log( ids);
-      const res = await Api.Products.bookmarksProduct( ids);
 
-      const { result ,entities } = normalize(res.data, schemas.ProductList);
-      
-      dispatch(actions.fetchBookmarksProduct.success({ result, entities }));
-      return(res);
+      const res = await Api.Products.bookmarksProduct(ids);
+
+      const { result, entities } = normalize(
+        res.data,
+        schemas.ProductList,
+      );
+
+      dispatch(
+        actions.fetchBookmarksProduct.success({ result, entities }),
+      );
+      return res;
     } catch (err) {
-      dispatch(actions.fetchBookmarksProduct.error({ message: err.message }));
+      dispatch(
+        actions.fetchBookmarksProduct.error({ message: err.message }),
+      );
     }
   };
 }
@@ -57,14 +64,19 @@ export function fetchBookmarks() {
   return async function fetchBookmarkThunk(dispatch, getState) {
     try {
       dispatch(actions.fetchBookmarks.start());
-      
-      const res = await Api.Products.bookmarks( );
 
-      const { result ,entities } = normalize(res.data, schemas.ProductList);
+      const res = await Api.Products.bookmarks();
+
+      const { result, entities } = normalize(
+        res.data,
+        schemas.ProductList,
+      );
       saveBookmarksList(getState(), result);
       dispatch(actions.fetchBookmarks.success({ result, entities }));
     } catch (err) {
-      dispatch(actions.fetchBookmarks.error({ message: err.message }));
+      dispatch(
+        actions.fetchBookmarks.error({ message: err.message }),
+      );
     }
   };
 }

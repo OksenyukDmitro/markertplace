@@ -24,10 +24,7 @@ const enhancer = compose(
   withRouter,
   withHandlers({
     handleLogout: (props) => () => {
-      
       props.logout();
-
-     
     },
   }),
 );

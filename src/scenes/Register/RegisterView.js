@@ -14,6 +14,7 @@ function Register({
   isLoading,
   errorMessage,
 }) {
+
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
@@ -47,7 +48,7 @@ function Register({
             onChange={handleFieldChange}
             type="password"
           />
-          <p className={s.forgetPass}>Don’t remember password?</p>
+       
           <button
             disabled={isLoading ? true : false}
             className={s.btn}

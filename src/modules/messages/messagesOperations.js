@@ -11,14 +11,14 @@ export function sendMessage(chatId, text) {
     const user = viewerSelectors.getUser(getState());
 
     const message = createMessage({ chatId, text, ownerId: user.id });
-    console.log('cvxc', [message]);
+
     try {
       const messageNormalize = normalize(message, Message);
       dispatch(
         actions.sendMessage.start({
           chatId,
-          result:messageNormalize.result,
-          entities: messageNormalize.entities
+          result: messageNormalize.result,
+          entities: messageNormalize.entities,
         }),
       );
       const res = await Api.Messages.sendMessage(chatId, text);
@@ -60,25 +60,20 @@ export function fetchMessages(chatId) {
 }
 
 export function handleMessageRealTime(evt) {
-return async function handleMessageRealTimeThunk(dispatch) {
-  
-  if(evt.type === "ADD")
-  dispatch(addMessage(evt.message))
+  return async function handleMessageRealTimeThunk(dispatch) {
+    if (evt.type === 'ADD') dispatch(addMessage(evt.message));
   };
 }
 
 export function addMessage(message) {
   return async function addMessageThunk(dispatch) {
-   
-    
-      const messageNormalize = normalize(message, Message);
-      dispatch(
-        actions.sendMessage.start({
-          chatId: message.chatId,
-          result:messageNormalize.result,
-          entities: messageNormalize.entities
-        }),
-      );
-      
+    const messageNormalize = normalize(message, Message);
+    dispatch(
+      actions.sendMessage.start({
+        chatId: message.chatId,
+        result: messageNormalize.result,
+        entities: messageNormalize.entities,
+      }),
+    );
   };
 }

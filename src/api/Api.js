@@ -1,20 +1,20 @@
 import axios from 'axios';
 import SocketApi from './SocketApi';
-import Qs from 'qs'
+import Qs from 'qs';
 const urls = {
   login: '/api/auth/login',
   register: '/api/auth/register',
   viewer: '/api/account/user',
   productsLatest: '/api/products/latest',
   addProduct: '/api/products',
-  userProducts: '/api/users/', 
-   uploadImage: '/api/upload/images',
-   user: '/api/users/',
-    product: '/api/products/',
-    chats: '/api/chats',
-    bookmarksProduct:'/api/products/ids', 
-    getBookmarks:"/api/products/saved",
-    bookmarks:"/api/products/saved"
+  userProducts: '/api/users/',
+  uploadImage: '/api/upload/images',
+  user: '/api/users/',
+  product: '/api/products/',
+  chats: '/api/chats',
+  bookmarksProduct: '/api/products/ids',
+  getBookmarks: '/api/products/saved',
+  bookmarks: '/api/products/saved',
 };
 
 export const Auth = {
@@ -51,7 +51,7 @@ export const Auth = {
 
   logout() {
     this._token = null;
-    axios.defaults.headers.common.Authorization = ``
+    axios.defaults.headers.common.Authorization = ``;
     try {
       window.localStorage.removeItem('token');
     } catch (error) {
@@ -81,7 +81,7 @@ export const viewer = {
 };
 export const user = {
   get(id) {
-    return axios.get(urls.user +   `${id}`);
+    return axios.get(urls.user + `${id}`);
   },
 };
 
@@ -93,7 +93,7 @@ export const Products = {
     return axios.post(urls.addProduct, body);
   },
   Product(id) {
-    return axios.get(urls.product+   `${id}`);
+    return axios.get(urls.product + `${id}`);
   },
 
   uploadImage(body) {
@@ -106,15 +106,15 @@ export const Products = {
     return axios.get(urls.bookmarks);
   },
   bookmarksProduct(ids) {
-    console.log([ids]);
-    return axios.get(urls.bookmarksProduct,  {
+    return axios.get(urls.bookmarksProduct, {
       params: {
-        id:ids
+        id: ids,
       },
-      paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})
-    })
+      paramsSerializer: (params) =>
+        Qs.stringify(params, { arrayFormat: 'repeat' }),
+    });
   },
-  
+
   saveBookmarks(id) {
     return axios.post(`${urls.product}/${id}/save`);
   },
@@ -126,27 +126,22 @@ export const Products = {
   },
 };
 
-export const Chats={
-  createChat(productId){
+export const Chats = {
+  createChat(productId) {
     return axios.post(`${urls.product}${productId}/createChat `);
-
   },
-  fetch(){
+  fetch() {
     return axios.get(urls.chats);
-
-  }
-}
-export const Messages={
-  sendMessage(chatId, text){
-   
-    return axios.post(`${urls.chats}/${chatId}/messages`,{text});
-
   },
-  fetchMessages(chatId){
+};
+export const Messages = {
+  sendMessage(chatId, text) {
+    return axios.post(`${urls.chats}/${chatId}/messages`, { text });
+  },
+  fetchMessages(chatId) {
     return axios.get(`${urls.chats}/${chatId}/messages`);
-
-  }
-}
+  },
+};
 
 export function init() {
   Auth.init();
