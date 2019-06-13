@@ -10,17 +10,25 @@ import UserProducts from '../UserProducts/UserProductsContainer';
 import ProductsList from '../../components/ProductsList/ProductsListContainer';
 import { fetchUserProducts } from '../../modules/user/userOperations';
 
-function Profile({ fetchUserProducts,match, isLoading, owner, products }) {
+function Profile({
+  onChangeSearchText,
+  searchText,
+  fetchUserProducts,
+  match,
+  isLoading,
+  owner,
+  products,
+}) {
   if (isLoading || !owner) return <div>Loading</div>;
 
-    if(products===undefined){
-     
-    fetchUserProducts(match.params.id);}
-      return (
+  if (products === undefined) {
+    fetchUserProducts(match.params.id);
+  }
+  return (
     <div>
       <div className={s.container}>
         <Header>
-          <SearchBox />
+          <SearchBox onChange={onChangeSearchText} />
         </Header>
         <div className={s.contentContainer}>
           <div className={s.avatarContainer}>
@@ -54,9 +62,11 @@ function Profile({ fetchUserProducts,match, isLoading, owner, products }) {
             </table>
           </div>
           {products
-            ? products.map((item) => (
-                <ProductsList item={item} lightBack={true} />
-              ))
+            ? products.map((item) =>
+                ~item.title.indexOf(searchText) ? (
+                  <ProductsList item={item} />
+                ) : null,
+              )
             : null}{' '}
         </div>
       </div>{' '}

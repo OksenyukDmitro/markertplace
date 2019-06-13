@@ -16,8 +16,6 @@ function Inbox({ items,openChat, match }) {
   if (!Api.Auth.isLoggedIn) {
     return <Redirect to={routes.login} />;
   }
-  console.log('in');
-  console.log(items);
   if (!items) return <div>Load</div>;
   return (
     <div>

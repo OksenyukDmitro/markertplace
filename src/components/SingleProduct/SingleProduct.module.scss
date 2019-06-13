@@ -221,3 +221,29 @@ color: #101010;
 min-width: 150px;
   color: #ffffff;
 }
+.modal {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding-left: 78px;
+  padding-right: 78px;
+  padding-top: 17px;
+  max-height: 80%;
+  height:fit-content;
+}
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 12311;background: rgba(0, 0, 0, 0.37);
+}

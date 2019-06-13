@@ -83,20 +83,21 @@
   background: #f3f6fa;
   color: black;
   border-radius: 10%;
-
+  padding: 6px;
   background: #00aeef;
 }
 .messageTextViewer {
   background: #f3f6fa;
   border-radius: 10%;
-
+  padding: 6px;
   text-align: right;
 }
 .messageContainerViewer {
   align-self: flex-end;
 
-  padding: 8px;
-  margin: 4px;
+  padding-right: 8px;
+
+  margin-right: 4px;
   align-self: flex-end;
   max-width: 220px;
   width: fit-content;

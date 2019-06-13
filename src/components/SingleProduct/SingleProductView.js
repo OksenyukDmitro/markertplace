@@ -18,7 +18,7 @@ const SingleProduct = ({
   toggleModal,
   isModalOpen,
   viewer,
-  openInbox
+  openInbox,
 }) => {
   if (!item) return <div>Loading</div>;
 
@@ -56,15 +56,14 @@ const SingleProduct = ({
               </div>
               <p className={s.fullname}>{owner.fullName}</p>
 
-              <p className={s.location}>{owner.fullName}</p>
+              <p className={s.location}>{owner.location}</p>
             </div>
             <button
-            
               type="button"
-              onClick={isViewer?openInbox: toggleModal}
+              onClick={isViewer ? openInbox : toggleModal}
               className={s.btnChat}
             >
-           {  isViewer?"Chats":"Chat with seller"}
+              {isViewer ? 'Chats' : 'Chat with seller'}
             </button>
             <button className={s.btnChat}>Add to favorive</button>
           </div>
@@ -85,6 +84,8 @@ const SingleProduct = ({
             backgroundColor: 'rgb(255, 255, 255);',
           },
         }}
+        className={s.modal}
+        overlayClassName={s.overlay}
       >
         <ContactSellerModal
           productId={item.id}

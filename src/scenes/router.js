@@ -48,7 +48,7 @@ export default function Router() {
         <PrivateRoute path={routes.addProducts} component={Modal} />
         <Route path={routes.terms} component={Terms} />
         <Route path={routes.privacy} component={Privacy} />
-        <PrivateRoute path={routes.bookmarks} component={Bookmarks} />
+        <Route path={routes.bookmarks} component={Bookmarks} />
         <PrivateRoute path={routes.profile} component={Profile} />
         <Route path={routes.auth} component={Auth} />
         <Route path={routes.products} component={Product} />

@@ -1,6 +1,14 @@
 .container {
   
-  height: 100%;
+
+    //position: absolute;
+    margin-left: 18.2%;
+    margin-right: 17.2%;
+    //max-width: 60%;
+    min-height: calc(100vh - 333px);
+   // margin-top: 160px;
+    padding-bottom: 96px;
+  
 }
 .text {
   position: absolute;

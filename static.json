@@ -6,6 +6,12 @@
     "proxies": {
       "/api/": {
         "origin": "https://apiko-marketplace-api-2019.herokuapp.com/"
+      },
+      "/socket.io":{
+        "origin": "https://apiko-marketplace-api-2019.herokuapp.com/",
+        "changeOrigin": true,
+        "ws": true,
+        "wss": true
       }
   }
 }

@@ -7,19 +7,20 @@ import { SearchBox } from '../../components';
 import { ProductsList } from '../../components';
 
 
-function LatestList({ list, isLoading, }) {
+function LatestList({ list, isLoading,onChangeSearchText,searchText}) {
   
   if(isLoading) return (<div>Loading</div>);
   return (
     <div >
       <Header>
-        <SearchBox />
+        <SearchBox onChange={onChangeSearchText}/>
       </Header>
       <div className={s.bossContainer}>
       <div className={s.container}>
      
         {list.map((item) => (
-         <ProductsList item={item}/>
+          ~item.title.indexOf(searchText)?
+         <ProductsList item={item}/>:null
         ))}
       </div>
       </div>

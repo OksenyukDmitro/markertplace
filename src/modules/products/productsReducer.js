@@ -8,13 +8,18 @@ const INITIAL_STATE = {
     isError: false,
     error: null,
   },
+  bookmarks: {
+    items: [],
+    isLoading: false,
+    isError: false,
+    error: null,
+  },
   addProduct: {
     product: [],
     isLoading: false,
     isError: false,
     error: null,
-  },
- 
+  }, 
   product: {
   
     isLoading: false,
@@ -48,6 +53,60 @@ export default handleActions(
       ...state,
       latest: {
         ...state.latest,
+        isLoading: false,
+        isError: true,
+        error: action.payload,
+      },
+    }),
+    [actions.fetchBookmarksProduct.start]: (state) => ({
+      ...state,
+      bookmarks: {
+        ...state.bookmarks,
+        isLoading: true,
+        isError: false,
+        error: null,
+      },
+    }),
+    [actions.fetchBookmarksProduct.success]: (state, action) => ({
+      ...state,      
+      bookmarks: {
+        ...state.bookmarks,
+        isLoading: false,
+        items: action.payload.result,
+      },
+
+    }),
+    [actions.fetchBookmarksProduct.error]: (state, action) => ({
+      ...state,
+      bookmarks: {
+        ...state.bookmarks,
+        isLoading: false,
+        isError: true,
+        error: action.payload,
+      },
+    }),
+    [actions.fetchBookmarks.start]: (state) => ({
+      ...state,
+      bookmarks: {
+        ...state.bookmarks,
+        isLoading: true,
+        isError: false,
+        error: null,
+      },
+    }),
+    [actions.fetchBookmarks.success]: (state, action) => ({
+      ...state,      
+      bookmarks: {
+        ...state.bookmarks,
+        isLoading: false,
+        items: action.payload.result,
+      },
+
+    }),
+    [actions.fetchBookmarks.error]: (state, action) => ({
+      ...state,
+      bookmarks: {
+        ...state.bookmarks,
         isLoading: false,
         isError: true,
         error: action.payload,

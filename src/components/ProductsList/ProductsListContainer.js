@@ -5,6 +5,7 @@ import { productsOperations } from '../../modules/products';
 import { routes } from '../../scenes/router';
 import { withRouter, generatePath } from 'react-router-dom';
 import saveBookmarks, { isBookmarks } from '../../helpers/bookmarks';
+import { FastField } from 'formik';
 
 const mapStateToProps = (state) => ({
   //list: state.products.latest.items,
@@ -21,18 +22,22 @@ const enhancer = compose(
     mapDispatchToProps,
   ),
   withRouter,
-  withState('isBookmark','changeBookmark', false),
+  withState('isBookmark', 'changeBookmark', false),
   withHandlers({
     openProduct: (props) => async () => {
       props.history.push({
-        pathname: generatePath(routes.products, { id: props.item.id} ),
-      
-        //  state: { item: props.item },
+        pathname: generatePath(routes.products, {
+          id: props.item.id,
+        }),
       });
     },
-    addToBookmarks: (props) => () => {      
-      saveBookmarks(props.viewer.id, props.item.id);
-      props.changeBookmark( !props.isBookmark);
+    addToBookmarks: (props) => () => {
+      if (props.viewer) {
+        saveBookmarks(props.viewer.id, props.item.id);
+      } else {
+        saveBookmarks('guest', props.item.id);
+      }
+      props.changeBookmark(!props.isBookmark);
     },
   }),
 );

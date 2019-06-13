@@ -1,3 +1,142 @@
-.container{
-    z-index: 10000;
+.container {
+  z-index: 10000;
+}
+.title {
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 22px;
+  line-height: 25px;
+  margin-top: 0px;
+  color: #282828;
+}
+.subject {
+  font-family: Helvetica;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
+  margin-bottom: 16px;
+  color: #373738;
+  margin-top: 29px;
+}
+.btn {
+  height: 58px;
+  min-width: 70px;
+  padding-left: 50px;
+  padding-right: 46px;
+  background: #349a89;
+  border-radius: 5px;
+  width: 55%;
+  margin-left: 22%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-decoration: none;
+  .text {
+    font-family: Helvetica;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.4px;
+
+    color: #ffffff;
+  }
+  cursor: pointer;
+}
+.disabledBtn {
+  height: 58px;
+  min-width: 70px;
+  padding-left: 50px;
+  padding-right: 46px;
+  background: #349a89;
+  opacity: 0.7;
+  border-radius: 5px;
+  width: 55%;
+  margin-left: 22%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-decoration: none;
+  .text {
+    font-family: Helvetica;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.4px;
+
+    color: #ffffff;
+  }
+}
+
+.textArea {
+  width: 100%;
+  height: 183px;
+  background: #f9fafb;
+  border: 1px solid #dedee0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  min-width: 100px;
+  min-height: 20px;
+  max-width: 100%;
+  max-height: 186px;
+  resize: none;    padding: 18px;
+}
+.label {
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+
+  color: #303030;
+
+  
+  margin-right: 24px;
+  margin-top: 15px;
+
+  margin-bottom: 4px;
+}
+.userIconContent {
+    margin: 0px;
+    padding: 0px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -16px;
+    float: left;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 14px;
+    line-height: 72px;
+  }
+  .fullName{
+    font-family: Helvetica;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    
+    color: #2B2B2B;
+    margin-top: -7px;
+    margin-bottom: 0px;
+    margin-left: 90px;
+}
+
+  .location {
+    margin: 0px;
+    padding: 0px;
+    height: 16px;
+    font-family: Helvetica;
+    font-size: 10px;
+    font-family: Helvetica;
+font-size: 15px;
+line-height: 17px;
+
+color: rgba(43, 43, 43, 0.499918);
+
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 90px;
+}
+.inputContainer{
+
 }

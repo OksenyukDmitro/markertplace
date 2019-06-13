@@ -2,6 +2,7 @@ import * as actions from './appActions';
 import Api, { SocketApi } from '../../api';
 import { viewerOperations } from '../viewer';
 import { messagesOperations } from '../messages';
+import { productsOperations } from '../products';
 
 export function subscribeToSockets() {
   return function subscribeToSocketsThunk(dispatch) {
@@ -17,9 +18,9 @@ export function init() {
       dispatch(actions.initialization.start());
       Api.init();
       console.log('fetch');
-      dispatch(viewerOperations.fetchViewer());
+     const viewer = await dispatch(viewerOperations.fetchViewer());
       dispatch(actions.initialization.success());
-      
+      dispatch(productsOperations.fetchBookmarks());
       dispatch(subscribeToSockets());
     } catch (err) {
       dispatch(

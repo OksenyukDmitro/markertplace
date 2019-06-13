@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose, lifecycle, withHandlers, withState } from 'recompose';
 import LatestListView from './LatestListView';
 import { productsOperations } from '../../modules/products';
 
@@ -17,6 +17,13 @@ const enhancer = compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
+  withState("searchText","setSearchText",""),
+  withHandlers({  
+    onChangeSearchText:(props)=>(text)=>{
+      console.log(text)
+      props.setSearchText(text);     
+    }
+  }),  
   lifecycle({
     componentDidMount() {       
         this.props.fetchLatest();

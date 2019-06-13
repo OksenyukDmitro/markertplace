@@ -11,7 +11,7 @@ import { formatingTimeAgo } from '../../helpers';
 
 const cache = new CellMeasurerCache({
   fixedWidth:true,
-  defaultHeight:50
+  defaultHeight:10
 })
 
 

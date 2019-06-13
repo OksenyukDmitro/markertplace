@@ -1,17 +1,26 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose, lifecycle, withHandlers } from 'recompose';
 import Bookmarks from './BookmarksView';
-import { productsOperations } from '../../modules/products';
+import {
+  productsOperations,
+  productsSelectors,
+} from '../../modules/products';
 import { withRouter } from 'react-router-dom';
 import { getBookmarks } from '../../helpers/bookmarks';
+import { userOperations } from '../../modules/user';
+import { viewerOperations } from '../../modules/viewer';
 
 const mapStateToProps = (state) => ({
   //list: state.products.latest.items,
   isLoading: state.viewer.isLoading,
   viewer: state.viewer.user,
+  items: productsSelectors.getBookmarks(state),
 });
 const mapDispatchToProps = {
   fetchProduct: productsOperations.fetchProduct,
+  fetchBookmarksProduct: productsOperations.fetchBookmarksProduct,
+  fetchBookmarks: productsOperations.fetchBookmarks,
+  fetchViewer: viewerOperations.fetchViewer,
 };
 const enhancer = compose(
   withRouter,
@@ -19,12 +28,19 @@ const enhancer = compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
+  withHandlers({
+   
+  }),
   lifecycle({
-    componentDidMount() {
-      let bookmarks;
-      if (this.props.viewer) bookmarks = getBookmarks(this.props.viewer.id);
-      if (bookmarks) bookmarks.map((item) => this.props.fetchProduct(item.id));
-      
+    async componentDidMount() {
+      if (!this.props.viewer) {
+        await this.props.fetchViewer();
+        await this.props.fetchBookmarks();
+      }
+
+
+      if (this.props.viewer) await this.props.fetchBookmarks();
+      console.log(this.props.items);
     },
   }),
 );

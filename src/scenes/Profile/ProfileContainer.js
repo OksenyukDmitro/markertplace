@@ -3,6 +3,7 @@ import {
   withStateHandlers,
   withHandlers,
   lifecycle,
+  withState
 } from 'recompose';
 import Profile from './ProfileView';
 import { connect } from 'react-redux';
@@ -28,23 +29,7 @@ const enhancer = compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-  withStateHandlers(
-    {
-      fields: {
-        email: '',
-        password: '',
-      },
-    },
-    {
-      handleFieldChange: (state) => (fieldName, value) => ({
-        ...state,
-        fields: {
-          ...state.fields,
-          [fieldName]: value,
-        },
-      }),
-    },
-  ),
+
   withHandlers({
     handleLogin: (props) => async () => {
       console.log(props.fields);
@@ -52,6 +37,14 @@ const enhancer = compose(
       if (Api.Auth.isLoggedIn) props.history.push(routes.home);
     },
   }),
+  
+  withState("searchText","setSearchText",""),
+  withHandlers({  
+    onChangeSearchText:(props)=>(text)=>{
+      console.log(text)
+      props.setSearchText(text);     
+    }
+  }),  
   lifecycle({
     async componentDidMount() {
     

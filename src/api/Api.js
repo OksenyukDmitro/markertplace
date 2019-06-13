@@ -1,6 +1,6 @@
 import axios from 'axios';
 import SocketApi from './SocketApi';
-
+import Qs from 'qs'
 const urls = {
   login: '/api/auth/login',
   register: '/api/auth/register',
@@ -12,7 +12,9 @@ const urls = {
    user: '/api/users/',
     product: '/api/products/',
     chats: '/api/chats',
-
+    bookmarksProduct:'/api/products/ids', 
+    getBookmarks:"/api/products/saved",
+    bookmarks:"/api/products/saved"
 };
 
 export const Auth = {
@@ -99,6 +101,28 @@ export const Products = {
   },
   getUserProducts(id) {
     return axios.get(urls.userProducts + `${id}/products`);
+  },
+  bookmarks() {
+    return axios.get(urls.bookmarks);
+  },
+  bookmarksProduct(ids) {
+    console.log([ids]);
+    return axios.get(urls.bookmarksProduct,  {
+      params: {
+        id:ids
+      },
+      paramsSerializer: params => Qs.stringify(params, {arrayFormat: 'repeat'})
+    })
+  },
+  
+  saveBookmarks(id) {
+    return axios.post(`${urls.product}/${id}/save`);
+  },
+  unSaveBookmarks(id) {
+    return axios.post(`${urls.product}/${id}/unsave`);
+  },
+  getBookmarks(id) {
+    return axios.get(urls.getBookmarks);
   },
 };
 
